@@ -1,0 +1,7 @@
+<?php
+
+return array(
+    'url' => 'http://office.savantech.co.uk/Users/Account/LogOn?ReturnUrl=%2Fweather-stations%2Ftinto',
+    'username' => 'aaa',
+    'password' => 'bbb',
+);
