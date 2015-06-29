@@ -9,6 +9,7 @@ use Tinto\Database;
 $config = require('config.php');
 
 $db = new Database;
+$chart = new Chart($db);
 
 $crawler = new Crawler($config);
 $crawler->auth();

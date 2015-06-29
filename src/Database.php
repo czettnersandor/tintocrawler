@@ -107,4 +107,16 @@ class Database
                 break;
         }
     }
+
+    public function getData($table, $now, $granurality = 'today')
+    {
+        $stmt = $db->prepare(
+            'SELECT * FROM ' . $table . ' WHERE timestamp < :now AND timestamp > :back'
+        );
+        $stmt->bindValue(':now', $now, SQLITE3_INTEGER);
+        $stmt->bindValue(':back', $now - 86400, SQLITE3_INTEGER);
+        $stmt->bindValue(':avg', $item[1]);
+
+        $results = $stmt->execute();
+    }
 }
