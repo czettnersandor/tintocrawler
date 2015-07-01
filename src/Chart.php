@@ -13,4 +13,46 @@ class Chart
     {
         $this->db = $db;
     }
+
+    public function generate($table)
+    {
+        $db = $this->db;
+
+        $json = [
+            'labels' => [],
+            'datasets' => [
+                [
+                    'label' => 'Minimum',
+                    'fillColor' => 'rgba(220,220,220,0.2)',
+                    'strokeColor' => 'rgba(220,220,220,1)',
+                    'pointColor' => 'rgba(220,220,220,1)',
+                    'pointStrokeColor' => '#fff',
+                    'pointHighlightFill' => '#fff',
+                    'pointHighlightStroke' => 'rgba(220,220,220,1)',
+                    'data' => [],
+                ],
+                [
+                    'label' => 'Maximum',
+                    'fillColor' => 'rgba(255,220,220,0.2)',
+                    'strokeColor' => 'rgba(255,220,220,1)',
+                    'pointColor' => 'rgba(255,220,220,1)',
+                    'pointStrokeColor' => '#fff',
+                    'pointHighlightFill' => '#fff',
+                    'pointHighlightStroke' => 'rgba(255,220,220,1)',
+                    'data' => [],
+                ],
+                [
+                    'label' => 'Average',
+                    'fillColor' => 'rgba(220,255,220,0.2)',
+                    'strokeColor' => 'rgba(220,255,220,1)',
+                    'pointColor' => 'rgba(220,255,220,1)',
+                    'pointStrokeColor' => '#fff',
+                    'pointHighlightFill' => '#fff',
+                    'pointHighlightStroke' => 'rgba(220,255,220,1)',
+                    'data' => [],
+                ],
+
+            },
+        ];
+    }
 }
