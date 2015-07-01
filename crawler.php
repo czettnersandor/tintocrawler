@@ -28,3 +28,5 @@ $db->insert($temperature, 'temperature');
 $db->insert($humidity, 'humidity');
 $db->insert($brightness, 'brightness');
 $db->insert($pressure, 'pressure');
+
+$chart->generate('windstrength');

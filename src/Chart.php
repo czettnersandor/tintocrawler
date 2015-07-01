@@ -52,7 +52,18 @@ class Chart
                     'data' => [],
                 ],
 
-            },
+            ],
         ];
+
+        switch($table) {
+            case 'windstrength':
+                $filename = 'public/data/windstrength.json';
+                break;
+            default:
+                throw new Exception('Data table is not paired with json file');
+        }
+
+
+        file_put_contents($filename, json_encode($json));
     }
 }
