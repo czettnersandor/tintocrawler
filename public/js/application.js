@@ -14,7 +14,15 @@ function fetchJSONFile(path, callback) {
 
 // this requests the file and executes a callback with the parsed result once
 //   it is available
-fetchJSONFile('data/windstrength.json', function(data){
-     // do something with your data
-    console.log(data);
-});
+window.onload = function(){
+        
+    fetchJSONFile('data/windstrength.json', function(data){
+        // do something with your data
+        console.log(data);
+        var ctx = document.getElementById("canvas").getContext("2d");
+	    window.myLine = new Chart(ctx).Line(data, {
+		    responsive: true
+	    });
+    });
+}
+

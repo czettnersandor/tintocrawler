@@ -74,13 +74,16 @@ class Database
     {
         $db = $this->db;
 
+        $timestamp = new \DateTime($item[0]);
+        $timestamp->modify('+1 month');
+
         switch ($table) {
             case 'windstrength':
                 $stmt = $db->prepare(
                     'INSERT OR REPLACE INTO windstrength (timestamp, avg, min, max) VALUES
                     (:timestamp, :avg, :min, :max)'
                 );
-                $stmt->bindValue(':timestamp', strtotime($item[0]), SQLITE3_INTEGER);
+                $stmt->bindValue(':timestamp', $timestamp->getTimestamp(), SQLITE3_INTEGER);
                 $stmt->bindValue(':avg', $item[1], SQLITE3_INTEGER);
                 $stmt->bindValue(':min', $item[2], SQLITE3_INTEGER);
                 $stmt->bindValue(':max', $item[3], SQLITE3_INTEGER);
@@ -96,7 +99,8 @@ class Database
                     'INSERT OR REPLACE INTO ' . $table . ' (timestamp, avg) VALUES
                     (:timestamp, :avg)'
                 );
-                $stmt->bindValue(':timestamp', strtotime($item[0]), SQLITE3_INTEGER);
+                
+                $stmt->bindValue(':timestamp', $timestamp->getTimestamp(), SQLITE3_INTEGER);
                 $stmt->bindValue(':avg', $item[1]);
 
                 $stmt->execute();
@@ -108,15 +112,22 @@ class Database
         }
     }
 
-    public function getData($table, $now, $granurality = 'today')
+    public function getData($table, $now = null, $granurality = 'today')
     {
+        if ($now === null) {
+            $now = time();
+        }
+
+        $db = $this->db;
+
         $stmt = $db->prepare(
             'SELECT * FROM ' . $table . ' WHERE timestamp < :now AND timestamp > :back'
         );
         $stmt->bindValue(':now', $now, SQLITE3_INTEGER);
-        $stmt->bindValue(':back', $now - 86400, SQLITE3_INTEGER);
-        $stmt->bindValue(':avg', $item[1]);
+        $stmt->bindValue(':back', $now - 21600, SQLITE3_INTEGER);
 
         $results = $stmt->execute();
+
+        return $results;
     }
 }
