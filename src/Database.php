@@ -85,8 +85,8 @@ class Database
                 );
                 $stmt->bindValue(':timestamp', $timestamp->getTimestamp(), SQLITE3_INTEGER);
                 $stmt->bindValue(':avg', $item[1], SQLITE3_INTEGER);
-                $stmt->bindValue(':min', $item[2], SQLITE3_INTEGER);
-                $stmt->bindValue(':max', $item[3], SQLITE3_INTEGER);
+                $stmt->bindValue(':min', $item[3], SQLITE3_INTEGER);
+                $stmt->bindValue(':max', $item[2], SQLITE3_INTEGER);
 
                 $stmt->execute();
                 break;
