@@ -12,6 +12,12 @@ class WindstrengthGenerator extends Chart
     {
         $db = $this->db;
         $results = $db->getData('windstrength');
+
+        $labels = [];
+        $minimum = [];
+        $maximum = [];
+        $average = [];
+
         while ($data = $results->fetchArray()) {
             $labels[] = date('G:i', $data['timestamp']);
             $minimum[] = $data['min'];

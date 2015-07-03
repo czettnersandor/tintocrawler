@@ -17,10 +17,6 @@ class Chart
     public function generate($table)
     {
         $db = $this->db;
-        $labels = [];
-        $minimum = [];
-        $maximum = [];
-        $average = [];
 
         switch ($table) {
             case 'windstrength':
