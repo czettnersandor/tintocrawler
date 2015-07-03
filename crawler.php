@@ -13,7 +13,7 @@ $db = new Database;
 $chart = new Chart($db);
 
 $crawler = new Crawler($config);
-/*$crawler->auth();
+$crawler->auth();
 
 $windstrength = $crawler->getData('d4'); // d4 is the temperature data
 $winddirection = $crawler->getData('d11');
@@ -28,5 +28,5 @@ $db->insert($temperature, 'temperature');
 $db->insert($humidity, 'humidity');
 $db->insert($brightness, 'brightness');
 $db->insert($pressure, 'pressure');
-*/
+
 $chart->generate('windstrength');

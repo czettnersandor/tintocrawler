@@ -17,6 +17,10 @@ class Chart
     public function generate($table)
     {
         $db = $this->db;
+        $labels = [];
+        $minimum = [];
+        $maximum = [];
+        $average = [];
 
         switch($table) {
             case 'windstrength':
@@ -28,7 +32,7 @@ class Chart
                     $maximum[] = $data['max'];
                     $average[] = $data['avg'];
                 }
-                
+
                 $json = [
                     'labels' => $labels,
                     'datasets' => [

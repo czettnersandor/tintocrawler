@@ -13,7 +13,7 @@ class Database
     public function __construct()
     {
         if ($db = new SQLite3('var/database.sqlite')) {
-            $q = $db->query(
+            $db->query(
                 'CREATE TABLE IF NOT EXISTS windstrength (
                     timestamp INTEGER,
                     avg INTEGER,
@@ -22,35 +22,35 @@ class Database
                 PRIMARY KEY (timestamp))'
             );
 
-            $q = $db->query(
+            $db->query(
                 'CREATE TABLE IF NOT EXISTS winddirection (
                     timestamp INTEGER,
                     avg REAL,
                 PRIMARY KEY (timestamp))'
             );
 
-            $q = $db->query(
+            $db->query(
                 'CREATE TABLE IF NOT EXISTS temperature (
                     timestamp INTEGER,
                     avg REAL,
                 PRIMARY KEY (timestamp))'
             );
 
-            $q = $db->query(
+            $db->query(
                 'CREATE TABLE IF NOT EXISTS humidity (
                     timestamp INTEGER,
                     avg INTEGER,
                 PRIMARY KEY (timestamp))'
             );
 
-            $q = $db->query(
+            $db->query(
                 'CREATE TABLE IF NOT EXISTS brightness (
                     timestamp INTEGER,
                     avg INTEGER,
                 PRIMARY KEY (timestamp))'
             );
 
-            $q = $db->query(
+            $db->query(
                 'CREATE TABLE IF NOT EXISTS pressure (
                     timestamp INTEGER,
                     avg REAL,
@@ -99,7 +99,7 @@ class Database
                     'INSERT OR REPLACE INTO ' . $table . ' (timestamp, avg) VALUES
                     (:timestamp, :avg)'
                 );
-                
+
                 $stmt->bindValue(':timestamp', $timestamp->getTimestamp(), SQLITE3_INTEGER);
                 $stmt->bindValue(':avg', $item[1]);
 
@@ -112,7 +112,7 @@ class Database
         }
     }
 
-    public function getData($table, $now = null, $granurality = 'today')
+    public function getData($table, $now = null)
     {
         if ($now === null) {
             $now = time();

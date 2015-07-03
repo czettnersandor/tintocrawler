@@ -47,9 +47,11 @@ class Crawler
 
     public function getData($name)
     {
-        $jsData = preg_match("/$name\\.addRows\((.*)\);;/im", $this->content, $matches);
+        preg_match("/$name\\.addRows\((.*)\);;/im", $this->content, $matches);
 
-        $jsData = preg_replace("/(new Date\\((\\d{4}),(\\d{1,2}),(\\d{1,2}),(\\d{1,2}),(\\d{1,2}),(\\d{1,2})\\))/im", '"$2-$3-$4 $5:$6:$7"', $matches[1]);
+        $dateRegex = "/(new Date\\((\\d{4}),(\\d{1,2}),(\\d{1,2}),(\\d{1,2}),(\\d{1,2}),(\\d{1,2})\\))/im";
+
+        $jsData = preg_replace($dateRegex, '"$2-$3-$4 $5:$6:$7"', $matches[1]);
 
         return json_decode($jsData);
     }
