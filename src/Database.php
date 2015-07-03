@@ -124,7 +124,7 @@ class Database
             'SELECT * FROM ' . $table . ' WHERE timestamp < :now AND timestamp > :back'
         );
         $stmt->bindValue(':now', $now, SQLITE3_INTEGER);
-        $stmt->bindValue(':back', $now - 21600, SQLITE3_INTEGER);
+        $stmt->bindValue(':back', $now - 86400, SQLITE3_INTEGER); // 24 hours
 
         $results = $stmt->execute();
 

@@ -18,11 +18,17 @@ window.onload = function(){
         
     fetchJSONFile('data/windstrength.json', function(data){
         // do something with your data
-        console.log(data);
+        lineData = JSON.parse(JSON.stringify(data));
+        console.log(lineData);
+        lineData['labels'] = lineData['labels'].slice(-20);
+        lineData['datasets'][0].data = lineData['datasets'][0].data.slice(-20);
+        lineData['datasets'][1].data = lineData['datasets'][1].data.slice(-20);
+        lineData['datasets'][2].data = lineData['datasets'][2].data.slice(-20);
+        console.log(lineData);
         var ctx = document.getElementById("canvas").getContext("2d");
-	    window.myLine = new Chart(ctx).Line(data, {
-		    responsive: true
-	    });
+        window.myLine = new Chart(ctx).Line(lineData, {
+            responsive: true
+        });
     });
 }
 
