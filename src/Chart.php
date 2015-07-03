@@ -22,7 +22,7 @@ class Chart
         $maximum = [];
         $average = [];
 
-        switch($table) {
+        switch ($table) {
             case 'windstrength':
                 $filename = 'public/data/windstrength.json';
                 $results = $db->getData('windstrength');
