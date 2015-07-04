@@ -16,6 +16,13 @@ class Crawler
         $this->config = $config;
     }
 
+    /**
+     * get Configuration value defined in config.php
+     *
+     * @param  string $name Name
+     *
+     * @return string Value
+     */
     public function getConfig($name)
     {
         if (isset($this->config[$name])) {
@@ -23,6 +30,11 @@ class Crawler
         }
     }
 
+    /**
+     * Logs in to thw Windtalker and saves the whole page in $this->content
+     *
+     * @return void
+     */
     public function auth()
     {
         $client = new Client();
@@ -45,6 +57,13 @@ class Crawler
         }
     }
 
+    /**
+     * Parse data from the Google Chart json using a regex.
+     *
+     * @param  string $name JSON variable name
+     *
+     * @return Array        Decoded JSON
+     */
     public function getData($name)
     {
         preg_match("/$name\\.addRows\((.*)\);;/im", $this->content, $matches);

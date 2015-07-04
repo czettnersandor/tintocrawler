@@ -16,7 +16,7 @@ class Chart
     {
         $db = $this->db;
 
-        $filename = 'public/data/' . $table .'.json';
+        $filename = 'public/data/' . $table . '.json';
         $genClass = 'Tinto\\Chart\\' . ucfirst($table) . 'Generator';
         $generator = new $genClass($db);
         $json = $generator->generate();

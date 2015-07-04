@@ -10,6 +10,11 @@ class Database
 
     protected $db;
 
+    /**
+     * Constructor.
+     * 
+     * @return void
+     */
     public function __construct()
     {
         if ($db = new SQLite3('var/database.sqlite')) {
@@ -63,6 +68,14 @@ class Database
         }
     }
 
+    /**
+     * Insert data into a table
+     *
+     * @param  Array  $data  Array of data lines
+     * @param  string $table Table name
+     *
+     * @return void
+     */
     public function insert(Array $data, $table)
     {
         foreach ($data as $item) {
@@ -70,6 +83,14 @@ class Database
         }
     }
 
+    /**
+     * Insert one line to a table
+     *
+     * @param  array $item   Array of fields
+     * @param  string $table [description]
+     *
+     * @return void
+     */
     public function insertOne($item, $table)
     {
         $db = $this->db;
@@ -112,6 +133,14 @@ class Database
         }
     }
 
+    /**
+     * Get data from a table
+     * 
+     * @param  string  $table Table name
+     * @param  integer $now   Timestamp
+     *
+     * @return SQLite3Result
+     */
     public function getData($table, $now = null)
     {
         if ($now === null) {
