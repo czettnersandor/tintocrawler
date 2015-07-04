@@ -2,7 +2,6 @@
 
 require_once('vendor/autoload.php');
 
-use Goutte\Client;
 use Tinto\Crawler;
 use Tinto\Database;
 use Tinto\Chart;

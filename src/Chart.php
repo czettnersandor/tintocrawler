@@ -10,7 +10,7 @@ class Chart
     /**
      * Constructor
      *
-     * @param \SQLite3 $db Database object
+     * @param Tinto\Database $db Database object
      */
     public function __construct($db)
     {
