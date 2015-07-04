@@ -59,7 +59,7 @@ class Database
 
             $this->db = $db;
         } else {
-            throw new Exception("Can't create database file", 1);
+            throw new \Exception("Can't create database file", 1);
         }
     }
 

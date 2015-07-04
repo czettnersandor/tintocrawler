@@ -31,3 +31,7 @@ $db->insert($pressure, 'pressure');
 
 $chart->generate('windstrength');
 $chart->generate('winddirection');
+$chart->generate('temperature');
+$chart->generate('humidity');
+$chart->generate('brightness');
+$chart->generate('pressure');

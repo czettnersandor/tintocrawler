@@ -4,12 +4,15 @@ namespace  Tinto\Chart;
 
 use Tinto\Chart;
 
-class WindstrengthGenerator extends Chart
+class WindstrengthGenerator extends AbstractGenerator
 {
+
+    protected $table = 'windstrength';
+
     public function generate()
     {
         $db = $this->db;
-        $results = $db->getData('windstrength');
+        $results = $db->getData($this->table);
 
         $labels = [];
         $minimum = [];

@@ -41,7 +41,7 @@ class Crawler
         $this->content = $crawler->text();
 
         if (strpos("Please enter your username and password", $this->content)) {
-            throw new Exception("Invalid login", 1);
+            throw new \Exception("Invalid login", 1);
         }
     }
 
