@@ -28,6 +28,20 @@ function showOlder() {
     });
 }
 
+function chartChange() {
+    var select = document.getElementById('charttype');
+    var selection = select.options[select.selectedIndex].value;
+
+    switch (selection) {
+    case 'windstrenght':
+        break;
+    case 'winddirection':
+        break;
+    default:
+        alert('Invalid selection');
+    }
+}
+
 // this requests the file and executes a callback with the parsed result once
 //   it is available
 window.onload = function(){
@@ -47,5 +61,6 @@ window.onload = function(){
     });
 
     document.getElementById('older').onclick = showOlder;
+    document.getElementById('charttype').onchange = chartChange;
 }
 
