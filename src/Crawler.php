@@ -11,13 +11,18 @@ class Crawler
 
     protected $content;
 
+    /**
+     * Constructor
+     *
+     * @param Array $config Configuration
+     */
     public function __construct($config)
     {
         $this->config = $config;
     }
 
     /**
-     * get Configuration value defined in config.php
+     * Get configuration value defined in config.php
      *
      * @param  string $name Name
      *

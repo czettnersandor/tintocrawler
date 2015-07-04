@@ -7,6 +7,11 @@ class Chart
 
     protected $db;
 
+    /**
+     * Constructor
+     *
+     * @param \SQLite3 $db Database object
+     */
     public function __construct($db)
     {
         $this->db = $db;

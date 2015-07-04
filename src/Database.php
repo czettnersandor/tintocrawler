@@ -2,7 +2,6 @@
 
 namespace  Tinto;
 
-use Goutte\Client;
 use \SQLite3;
 
 class Database
@@ -11,9 +10,7 @@ class Database
     protected $db;
 
     /**
-     * Constructor.
-     * 
-     * @return void
+     * Constructor
      */
     public function __construct()
     {
@@ -135,11 +132,11 @@ class Database
 
     /**
      * Get data from a table
-     * 
+     *
      * @param  string  $table Table name
      * @param  integer $now   Timestamp
      *
-     * @return SQLite3Result
+     * @return \SQLite3Result
      */
     public function getData($table, $now = null)
     {
