@@ -30,3 +30,4 @@ $db->insert($brightness, 'brightness');
 $db->insert($pressure, 'pressure');
 
 $chart->generate('windstrength');
+$chart->generate('winddirection');

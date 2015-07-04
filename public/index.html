@@ -1,24 +1,27 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Today's charts</title>
-		<script src="js/Chart.min.js"></script>
-		<script src="js/application.js"></script>
+    <head>
+        <title>Today's charts</title>
+        <script src="js/Chart.min.js"></script>
+        <script src="js/application.js"></script>
         <style>
             #canvas {
                 width: 100$;
             }
         </style>
-	</head>
-	<body>
-		<div style="width:95%">
-			<div>
-				<canvas id="canvas" height="250" width="700"></canvas>
-			</div>
-		</div>
+    </head>
+    <body>
+        <div style="width:95%">
+            <div>
+                <canvas id="canvas" height="250" width="700"></canvas>
+            </div>
+        </div>
         <div id="controls">
             <button id="older">Back</button>
+            <select name="charttype" id="charttype">
+                <option value="windstrength">Wind Strength</option>
+                <option value="winddirection">Direction</option>
+            </select>
         </div>
-
-		</body>
+    </body>
 </html>

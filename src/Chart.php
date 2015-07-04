@@ -22,6 +22,11 @@ class Chart
                 $generator = new Chart\WindstrengthGenerator($db);
                 $json = $generator->generate();
                 break;
+            case 'winddirection':
+                $filename = 'public/data/winddirection.json';
+                $generator = new Chart\WinddirectionGenerator($db);
+                $json = $generator->generate();
+                break;
             default:
                 throw new Exception('Data table is not paired with json file');
         }
