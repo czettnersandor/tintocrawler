@@ -76,6 +76,7 @@ function chartChange() {
         break;
     case 'brightness':
         loadChart('brightness');
+        break;
     case 'pressure':
         loadChart('pressure');
         break;
