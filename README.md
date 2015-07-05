@@ -18,4 +18,4 @@ To view the results, start a simple web server:
 php -S localhost:8000 -t public
 ```
 
-But it can be lightdm as well, PHP is not needed, everything is static content.
+But it can be [lighttpd](http://www.lighttpd.net/) as well, PHP is not needed, everything is static content.
