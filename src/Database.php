@@ -14,7 +14,7 @@ class Database
      */
     public function __construct()
     {
-        if ($db = new SQLite3('var/database.sqlite')) {
+        if ($db = new SQLite3(__DIR__ . '/../var/database.sqlite')) {
             $db->query(
                 'CREATE TABLE IF NOT EXISTS windstrength (
                     timestamp INTEGER,

@@ -21,11 +21,11 @@ class Chart
     {
         $db = $this->db;
 
-        $filename = 'public/data/' . $table . '.json';
+        $filename = '/../public/data/' . $table . '.json';
         $genClass = 'Tinto\\Chart\\' . ucfirst($table) . 'Generator';
         $generator = new $genClass($db);
         $json = $generator->generate();
 
-        file_put_contents($filename, json_encode($json));
+        file_put_contents(__DIR__ . $filename, json_encode($json));
     }
 }
