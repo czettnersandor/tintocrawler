@@ -8,7 +8,7 @@ use Tinto\Chart;
 
 $config = require('config.php');
 
-$db = new Database;
+$db = new Database\Sqlite;
 $chart = new Chart($db);
 
 $crawler = new Crawler($config);
